@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="y-wUa-o2Y3oRe0dNeH4ByDsfVvrT44Gk9if850vvcsY" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>    
+    <title>House Price Predictor</title>
+    
+  </head>
+  <body>
+    <header id="info">
+      <h1>Homeval</h1>
+    </header>
+
+    <div id="page">
+      <div id="map"></div>
+
+      <div id="content" style="display:none">
+        <h1 id="estimated_value">1.5m</h1><p>ESTIMATED AVG. PRICE</p>
+
+        <div id="inputs">
+          <div id="bedrooms" class="input_select">
+            <h4>BEDROOMS</h4>
+            <div>
+              <h2>1</h2>
+              <h2>2</h2>
+              <h2>3</h2>
+              <h2>4+</h2>
+            </div>
+          </div>
+<!--
+          <div id="bathrooms" class="input_select">
+            <h4>BATHROOMS</h4>
+            <div>
+              <h2>1</h2>
+              <h2>2</h2>
+              <h2>3</h2>
+              <h2>4+</h2>
+            </div>
+          </div>
+-->
+          <div id="living_area" class="input_select">
+            <h4>LIVING AREA (sqm)</h4>
+            <div>
+              <input type="number" placeholder="125">
+            </div>
+          </div>
+
+          <div id="land_area" class="input_select">
+            <h4>LAND AREA (sqm)</h4>
+            <div>
+              <input type="number" placeholder="450">
+            </div>
+          </div>
+
+          <div id="grade" class="input_select">
+            <h4>GRADE (1 or 2)</h4>
+            <div>
+              <h2>1</h2>
+              <h2>2</h2>
+            </div>
+          </div>
+
+          <div id="garage" class="input_select">
+            <h4>GARAGE (Yes or No)</h4>
+            <div>
+              <h2>No</h2>
+              <h2>Yes</h2>
+            </div>
+          </div>
+          
+          <br><br>
+          
+          <div id="submit" class="input_select">
+            <div>
+              <h2 class="active" onclick="getInformation()">Predict</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>MAKE_JS</script>
+  <style>MAKE_CSS</style>
+</html>

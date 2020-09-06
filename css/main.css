@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap');
+
+:root {
+  --text-color: #000;
+  --text-color-alt: #d8dbe8;
+
+  --color-secc: #9EACEA;
+  --background-color: #f5f5f4;
+
+  --acent-blue: #1433cc;
+  --acent-green: #b4e49b;
+  --acent-red: #e02966;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+
+  overflow: hidden;
+  font-family: 'Montserrat';
+
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  -webkit-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
+  -moz-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
+  box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
+}
+
+#map { 
+  flex: 1 0 auto;
+
+  width: 100vw;
+  height: 100vh;
+  
+  transition: .55s ease all;
+}
+
+#page {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#info {
+  z-index: 990;
+  display: flex;
+
+  height: 60px;
+  position: absolute;
+
+  margin: 0px auto;
+  width: 100%;
+
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+
+  text-align: center;
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+#content {
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 20%;
+  padding: 35px;
+
+  padding-top: calc(15px + 60px + 35px);
+
+  /* margin-top: calc(15px + 60px); */
+
+  border-left: 3px solid var(--text-color-alt);
+  font-size: 12px;
+
+  text-align: left;
+  color: var(--text-color);
+  background: var(--background-color);
+
+  transition: .55s ease all;
+
+  -webkit-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
+  -moz-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
+  box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
+  
+  z-index: 980;
+
+  height: 100%;
+  position: fixed;
+  transform: translateY(80%);
+}
+
+/* rgb(35, 233, 93) - Light Green (Lime) */
+
+.marker {
+  background-color: rgba(14, 142, 235, 0.6);
+  border: 3px solid rgba(14, 142, 235, 0.8);
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.choice_marker {
+  background-color: rgba(53, 245, 125, 0.3);
+  border: 1px solid rgba(53, 245, 125, 0.8);
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.input_select > div {
+  display: flex;
+  flex-direction: row;
+  justify-self: space-around;
+
+  width: 100%;
+}
+
+.input_select > div > h2 {
+  border: 1px solid var(--text-color-alt);
+  color: var(--text-color-alt);
+  border-radius: 5px;
+
+  margin: 5px;
+  text-align: center;
+
+  width: 100%;
+  padding: 5px 7px 5px 7px;
+}
+
+.input_select > div > h2:hover {
+  cursor: pointer;
+  
+  color: var(--color-secc);
+  border-color: var(--color-secc);
+}
+
+.input_select > div > h2.active {
+  color: var(--color-secc);
+  background-color: var(--text-color-alt);
+  border-color: var(--color-secc);
+}
+
+.input_select > div > input {
+  border: 1px solid var(--text-color-alt);
+  border-radius: 5px;
+
+  margin: 5px;
+  text-align: center;
+
+  width: 100%;
+  padding: 7px 7px;
+
+  background-color: transparent;
+  color: var(--color-secc);
+}
+
+.input_select > div > input:focus {
+  border-color: var(--color-secc);
+  color: var(--color-secc);
+  outline-color: var(--color-secc);  
+}
+
+.input_select > div > input:focus:hover{
+  cursor: text;
+}
+
+#content > h1 {
+  font-size: 4em;
+  margin-bottom: 0;
+}
+
+#inputs {
+  padding: 15px;
+}
+
+#inputs h4 {
+  font-weight: 300;
+}
+
+.input_select {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.input_select > h4 {
+  width: 50%;
+} 

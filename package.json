@@ -9,8 +9,8 @@
   "author": "Ben White",
   "license": "ISC",
   "dependencies": {
-    "@tensorflow/tfjs": "^2.3.0",
-    "@tensorflow/tfjs-node": "^2.3.0",
-    "@tensorflow/tfjs-node-gpu": "^2.3.0"
+    "@tensorflow/tfjs-node": "2.4.0",
+    "@tensorflow/tfjs-node-gpu": "^2.3.0",
+    "express": "^4.17.1"
   }
 }

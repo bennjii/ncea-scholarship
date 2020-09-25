@@ -125,13 +125,16 @@ function getInformation() {
 }
 
 const predict = (information) => {
-  let req = $.ajax({
-      type: "POST",
-      url: '127.0.0.1:3000',
-      data: JSON.stringify({ info: information }),
+  $.ajax({
+      type: "GET",
+      url: '/predict',
+      data: {info: information.map(Number)},
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      success: function(data){listPrediction(data)},
+      success: function(data){
+        console.log(data)
+        listPrediction(data)
+      },
       failure: function(errMsg) {
           alert(errMsg);
       }

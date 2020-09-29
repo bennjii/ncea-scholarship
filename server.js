@@ -1,12 +1,8 @@
 const tf = require('@tensorflow/tfjs');
 require('@tensorflow/tfjs-node');
 
-const fs = require('fs').promises;
-
-const http = require('http');
-
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = 3300;
 
 const express = require('express');
 const app = express();
@@ -27,7 +23,7 @@ app.get('/predict', async function (req, res) {
 });
 
 //listen for request on port 3000, and as a callback function have the port listened on logged
-server.listen(port, hostname, () => {
+server.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 

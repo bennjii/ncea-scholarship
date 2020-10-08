@@ -12,6 +12,22 @@
   --acent-red: #e02966;
 }
 
+:root[theme='dark'] {
+  --text-color: #e8e6e3;
+  --text-color-alt: #6772a3;
+
+  --color-secc: rgb(158, 172, 234);
+  --background-color: #1e2022;
+
+  --acent-blue: #1433cc;
+  --acent-green: #b4e49b;
+  --acent-red: #e02966;
+}
+
+#toggle-theme {
+  fill: var(--text-color);
+}
+
 html, body {
   height: 100vh;
   width: 100vw;
@@ -31,11 +47,10 @@ header {
 
 #map { 
   flex: 1 0 auto;
-
-  width: 100vw;
   height: 100vh;
   
   transition: .55s ease all;
+  width: max-content;
 }
 
 #page {
@@ -44,25 +59,42 @@ header {
 
   display: flex;
   flex-direction: row;
+
+  justify-content: space-evenly;
+  align-items: center;
+
+  overflow: hidden;
 }
 
 #info {
   z-index: 990;
   display: flex;
 
-  height: 60px;
-  position: absolute;
-
   margin: 0px auto;
   width: 100%;
 
   border: none;
-  border-radius: 3px;
   font-size: 12px;
 
   text-align: center;
   color: var(--text-color);
   background: var(--background-color);
+}
+
+#info > div {
+  width: 100%;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#info > div * {
+  margin: 2px;
 }
 
 #content {
@@ -73,12 +105,10 @@ header {
   display: flex;
   flex-direction: column;
 
-  width: 20%;
+  justify-content: center;
+
+  width: 350px;
   padding: 35px;
-
-  padding-top: calc(15px + 60px + 35px);
-
-  /* margin-top: calc(15px + 60px); */
 
   border-left: 3px solid var(--text-color-alt);
   font-size: 12px;
@@ -87,27 +117,22 @@ header {
   color: var(--text-color);
   background: var(--background-color);
 
-  transition: .55s ease all;
-
-  -webkit-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
-  -moz-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
-  box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
-  
-  z-index: 980;
-
   height: 100%;
-  position: fixed;
-  transform: translateY(80%);
 }
 
 /* rgb(35, 233, 93) - Light Green (Lime) */
 
 .marker {
+  /*
   background-color: rgba(14, 142, 235, 0.6);
   border: 3px solid rgba(14, 142, 235, 0.8);
+  */
 
-  width: 5px;
-  height: 5px;
+  background-color: rgba(14, 142, 235, 1);
+  border: 3px solid rgba(255, 255, 255, 1);
+
+  width: 2px;
+  height: 2px;
 
   border-radius: 50%;
   cursor: pointer;
@@ -183,7 +208,7 @@ header {
 
 #content > h1 {
   font-size: 4em;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 #inputs {

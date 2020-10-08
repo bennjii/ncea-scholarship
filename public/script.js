@@ -36,36 +36,22 @@ map.on('mousemove', function(e) {
 });
 
 map.on('click', function(e) {
+  $("#content").css('height', `calc(100% - ${$("#info").css('height')})`);
+
   var co_ords = e.lngLat.wrap();
   var lat_lang = [co_ords.lng, co_ords.lat];
 
-  switch (event.which) {
-    case 1:
-      choice_marker.remove();
-      choice_marker.setLngLat(lat_lang).addTo(map);
+  choice_marker.remove();
+  choice_marker.setLngLat(lat_lang).addTo(map);
 
-      $("#content").css('display', 'flex');
+  $("#content").css('display', 'flex');
+  $("#map").css('width', 'max-content');
 
-      $("#content").css('transform', 'translateY(0px)');
-      $("#map").css('width', '100%');
+  map.flyTo({
+    center: lat_lang
+  });
 
-      map.flyTo({
-        center: lat_lang
-      });
-
-      setTimeout(map.resize(), 550);
-
-      break;
-    case 2:
-      choice_marker.remove();
-      choice_marker.setLngLat(lat_lang).addTo(map);
-      break;
-    case 3:
-      choice_marker.remove();
-      break;
-    default:
-      alert('Nothing');
-  }
+  setTimeout(map.resize(), 550);
 });
 
 map.on('load', (event) => {
@@ -78,8 +64,8 @@ map.on('render', function() {
     $('.choice_marker').css("height" , `${scale * 0.01}px`);
     $('.choice_marker').css("width" , `${scale * 0.01}px`);
 
-    $('.marker').css("height" , `${scale * 0.003}px`);
-    $('.marker').css("width" , `${scale * 0.003}px`);
+    $('.marker').css("height" , `${scale * 0.001}px`);
+    $('.marker').css("width" , `${scale * 0.001}px`);
     // set css size based on scale
 });
   // var information = [
@@ -140,3 +126,31 @@ const predict = (information) => {
       }
   });
 };
+
+$("#toggle-theme").on('click', e => {
+  toggleTheme();
+});
+
+(function() {
+  if(localStorage.getItem("theme") == 'light'){
+    document.documentElement.removeAttribute('theme');
+    map.setStyle('mapbox://styles/benwhite22/ckdjulw5q0j8b1iqum7rznz7m');
+  }else{
+    document.documentElement.setAttribute('theme', 'dark');
+    map.setStyle('mapbox://styles/benwhite22/ckg0eal6e229u19l5vt4iqbwx')
+  }
+})();
+
+function toggleTheme() {
+  if(document.documentElement.hasAttribute('theme')){
+    document.documentElement.removeAttribute('theme');
+    map.setStyle('mapbox://styles/benwhite22/ckdjulw5q0j8b1iqum7rznz7m');
+
+    localStorage.setItem("theme", "light");
+  }else{
+    document.documentElement.setAttribute('theme', 'dark');
+    map.setStyle('mapbox://styles/benwhite22/ckg0eal6e229u19l5vt4iqbwx')
+
+    localStorage.setItem("theme", "dark");
+  }
+}

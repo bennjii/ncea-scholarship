@@ -14,7 +14,7 @@
 
 :root[theme='dark'] {
   --text-color: #e8e6e3;
-  --text-color-alt: #6772a3;
+  --text-color-alt: #a2afe91a;
 
   --color-secc: rgb(158, 172, 234);
   --background-color: #1e2022;
@@ -29,10 +29,9 @@
 }
 
 html, body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 
-  overflow: hidden;
   font-family: 'Montserrat';
 
   margin: 0;
@@ -43,19 +42,21 @@ header {
   -webkit-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
   -moz-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
   box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.5);
+
+  align-items: center;
 }
 
 #map { 
   flex: 1 0 auto;
-  height: 100vh;
+  height: 100%;
   
   transition: .55s ease all;
   width: max-content;
 }
 
 #page {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 
   display: flex;
   flex-direction: row;
@@ -79,9 +80,11 @@ header {
   text-align: center;
   color: var(--text-color);
   background: var(--background-color);
+
+  border-bottom: 3px solid var(--text-color-alt);
 }
 
-#info > div {
+#info > div:first-of-type {
   width: 100%;
 
   margin-top: 5px;
@@ -98,6 +101,8 @@ header {
 }
 
 #content {
+  position: relative;
+
   right: 0;
   top: 0;
   bottom: 0;
@@ -118,6 +123,32 @@ header {
   background: var(--background-color);
 
   height: 100%;
+}
+
+#retract {
+  --height: 40px;
+  --width: 40px;
+
+  position: absolute;
+  left: calc(var(--width) / 2 * -1);
+  top: 5%;
+
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--background-color);
+
+  border-radius: 5px;
+  border: 2px solid var(--color-secc);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 10px;  
+}
+
+#retract:hover {
+  cursor: pointer;
 }
 
 /* rgb(35, 233, 93) - Light Green (Lime) */
@@ -183,6 +214,8 @@ header {
 }
 
 .input_select > div > input {
+  font-family: inherit;
+  
   border: 1px solid var(--text-color-alt);
   border-radius: 5px;
 
@@ -194,6 +227,14 @@ header {
 
   background-color: transparent;
   color: var(--color-secc);
+
+  border-color: var(--color-secc);
+  background-color: var(--text-color-alt);
+}
+
+.input_select > div > input:placeholder-shown {
+  border-color: var(--text-color-alt);
+  background-color: transparent;
 }
 
 .input_select > div > input:focus {

@@ -36,7 +36,7 @@ map.on('mousemove', function(e) {
 });
 
 map.on('click', function(e) {
-  $("#content").css('height', `calc(100% - ${$("#info").css('height')})`);
+  //$("#content").css('height', `calc(100% - ${$("#info").css('height')})`);
 
   var co_ords = e.lngLat.wrap();
   var lat_lang = [co_ords.lng, co_ords.lat];
@@ -127,6 +127,11 @@ const predict = (information) => {
   });
 };
 
+$("#retract").on('click', e => {
+  $("#content").css('display', 'none');
+  map.resize()
+});
+
 $("#toggle-theme").on('click', e => {
   toggleTheme();
 });
@@ -135,9 +140,11 @@ $("#toggle-theme").on('click', e => {
   if(localStorage.getItem("theme") == 'light'){
     document.documentElement.removeAttribute('theme');
     map.setStyle('mapbox://styles/benwhite22/ckdjulw5q0j8b1iqum7rznz7m');
+    $("#toggle-theme").attr("src", "./icons/toggle-left_dark.svg");
   }else{
     document.documentElement.setAttribute('theme', 'dark');
-    map.setStyle('mapbox://styles/benwhite22/ckg0eal6e229u19l5vt4iqbwx')
+    map.setStyle('mapbox://styles/benwhite22/ckg0eal6e229u19l5vt4iqbwx');
+    $("#toggle-theme").attr("src", "./icons/toggle-right_light.svg");
   }
 })();
 
@@ -145,11 +152,13 @@ function toggleTheme() {
   if(document.documentElement.hasAttribute('theme')){
     document.documentElement.removeAttribute('theme');
     map.setStyle('mapbox://styles/benwhite22/ckdjulw5q0j8b1iqum7rznz7m');
+    $("#toggle-theme").attr("src", "./icons/toggle-left_dark.svg");
 
     localStorage.setItem("theme", "light");
   }else{
     document.documentElement.setAttribute('theme', 'dark');
     map.setStyle('mapbox://styles/benwhite22/ckg0eal6e229u19l5vt4iqbwx')
+    $("#toggle-theme").attr("src", "./icons/toggle-right_light.svg");
 
     localStorage.setItem("theme", "dark");
   }
